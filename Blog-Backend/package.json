@@ -1,0 +1,22 @@
+{
+  "name": "blogserver",
+  "version": "1.0.0",
+  "description": "A simple blog server api",
+  "license": "ISC",
+  "author": "Avinash Sood",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "nodemon": "^3.1.14",
+    "sqlite3": "^6.0.1"
+  }
+}

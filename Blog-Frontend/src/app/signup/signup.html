@@ -1,0 +1,42 @@
+<div class="container py-5 my-5 d-flex justify-content-center">
+  <div class="card-writenest p-5 w-100" style="max-width: 480px; box-shadow: 8px 8px 0 var(--black); border-width: 4px;">
+    <div class="text-center mb-4">
+      <h2 style="font-family: 'Outfit'; font-weight: 900; font-size: 32px;" class="mb-2">Create Account ⚡</h2>
+      <p class="text-muted">Register to start sharing your developer wins.</p>
+    </div>
+
+    <!-- Error Alert Box -->
+    @if (errorMsg()) {
+    <div class="alert alert-danger border border-dark border-3 rounded-3 mb-4" style="font-weight: 700; box-shadow: 3px 3px 0 var(--black);">
+      ❌ {{ errorMsg() }}
+    </div>
+    }
+
+    <!-- Signup Form -->
+    <form (submit)="signup()">
+      <div class="mb-3">
+        <label for="usernameInput" class="form-label" style="font-weight: 800; font-family: 'Outfit';">Username</label>
+        <input type="text" id="usernameInput" class="input-writenest" placeholder="e.g. janesmith" [ngModel]="username()" (ngModelChange)="username.set($event)" name="username" required autocomplete="username">
+      </div>
+
+      <div class="mb-3">
+        <label for="emailInput" class="form-label" style="font-weight: 800; font-family: 'Outfit';">Email Address</label>
+        <input type="email" id="emailInput" class="input-writenest" placeholder="jane@example.com" [ngModel]="email()" (ngModelChange)="email.set($event)" name="email" required autocomplete="email">
+      </div>
+
+      <div class="mb-4">
+        <label for="passwordInput" class="form-label" style="font-weight: 800; font-family: 'Outfit';">Password</label>
+        <input type="password" id="passwordInput" class="input-writenest" placeholder="••••••••" [ngModel]="password()" (ngModelChange)="password.set($event)" name="password" required autocomplete="new-password">
+      </div>
+
+      <button type="submit" class="btn-writenest-green w-100 py-3 text-center mb-3" [disabled]="isLoading()">
+        {{ isLoading() ? 'Creating Account...' : 'Sign Up' }}
+      </button>
+    </form>
+
+    <div class="text-center mt-3" style="font-weight: 700;">
+      <span>Already have an account? </span>
+      <a routerLink="/login" style="color: var(--black); text-decoration: underline;">Log In</a>
+    </div>
+  </div>
+</div>

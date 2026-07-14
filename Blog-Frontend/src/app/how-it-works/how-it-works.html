@@ -1,0 +1,80 @@
+<div class="container py-5 my-4">
+  <div class="text-center mb-5">
+    <span class="badge bg-dark text-warning border border-dark px-3 py-2 mb-3 float-anim" style="font-family: 'Outfit'; font-weight: 800;">HOW IT WORKS</span>
+    <h1 class="display-4 font-weight-bold" style="font-family: 'Outfit'; font-weight: 900;">The Developer Proof-of-Work Engine ⚡</h1>
+    <p class="lead text-muted col-md-8 mx-auto mt-3">
+      WriteNest lets you bypass traditional resumes by documenting real solutions, code architecture, and deployment wins. Here is how you use it.
+    </p>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <!-- Step 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-writenest h-100 text-center p-4">
+        <div class="step-number mb-4 d-inline-flex justify-content-center align-items-center">
+          <span>1</span>
+        </div>
+        <h3 class="mb-3">Blog Your Wins</h3>
+        <p class="text-muted mb-0">
+          Write technical articles, show off your database queries, document system designs, and detail the exact challenges you overcame.
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card-writenest h-100 text-center p-4">
+        <div class="step-number mb-4 d-inline-flex justify-content-center align-items-center" style="background-color: var(--accent-green);">
+          <span>2</span>
+        </div>
+        <h3 class="mb-3">Interactive Showcase</h3>
+        <p class="text-muted mb-0">
+          Your peers, employers, or clients view your blogs on a fast, modern neobrutalist page, leaving claps and feedback to validate your skills.
+        </p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="col-lg-4 col-md-12">
+      <div class="card-writenest h-100 text-center p-4">
+        <div class="step-number mb-4 d-inline-flex justify-content-center align-items-center" style="background-color: #A2E2F9;">
+          <span>3</span>
+        </div>
+        <h3 class="mb-3">Get Discovered</h3>
+        <p class="text-muted mb-0">
+          Your public blog board becomes your living resume. Showcase real backend configurations and frontend deployments directly to recruiters.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Terminal Demonstration -->
+  <div class="my-5 py-4">
+    <div class="card-writenest p-0 overflow-hidden" style="border-width: 4px; box-shadow: 8px 8px 0 var(--black);">
+      <div class="bg-dark px-3 py-2 d-flex justify-content-between align-items-center border-bottom border-dark border-3">
+        <div class="d-flex gap-2">
+          <span style="width: 12px; height: 12px; border-radius: 50%; background-color: #FF5F56; display: inline-block;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 50%; background-color: #FFBD2E; display: inline-block;"></span>
+          <span style="width: 12px; height: 12px; border-radius: 50%; background-color: #27C93F; display: inline-block;"></span>
+        </div>
+        <span class="text-white-50" style="font-family: 'Outfit'; font-size: 13px; font-weight: 700;">writenest-terminal.sh</span>
+        <span></span>
+      </div>
+      <div class="bg-black text-light p-4" style="font-family: monospace; font-size: 15px; min-height: 250px;">
+        <p class="text-success">$ npm run deploy-proof</p>
+        <p class="text-warning">Analyzing local code updates...</p>
+        <p class="text-info">Found SQLite integration. Compiling blog post details...</p>
+        <p>Title: [Implementing User Authentication with JWT and SQLite]</p>
+        <p class="text-white-50">Content excerpt: "In this blog, we build user signup/login endpoints using Express and SQLite, securely encrypting passwords with bcryptjs..."</p>
+        <br>
+        <p class="text-success">✔ Successfully synced proof of work to WriteNest cloud!</p>
+        <p class="text-warning">URL: <a href="http://localhost:4200" style="color: var(--accent-yellow); font-weight: 700;">http://localhost:4200/posts/14</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom signup CTA -->
+  <div class="text-center mt-5">
+    <a routerLink="/signup" class="btn-writenest-green py-3 px-5" style="font-size: 18px;">Create Your Portfolio Now 🚀</a>
+  </div>
+</div>

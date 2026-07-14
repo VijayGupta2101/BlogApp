@@ -1,0 +1,71 @@
+<div class="container my-5 py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <!-- Back button link -->
+      <button (click)="goBack()" class="btn-writenest-white mb-4 py-2 px-3"
+        style="font-size: 14px; box-shadow: 3px 3px 0 var(--black);">
+        ← Back to Feed
+      </button>
+
+      <!-- Neo-brutalist Create Card -->
+      <div class="card-writenest p-5" style="border-width: 4px; box-shadow: 7px 7px 0 var(--black);">
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <div class="d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; background-color: var(--accent-yellow); border: 3px solid var(--black); border-radius: 50%; font-size: 24px; font-weight: 800;">
+            ✏️
+          </div>
+          <div>
+            <h2 class="mb-0" style="font-size: 32px; font-family: 'Outfit'; font-weight: 900;">Publish Blog Post</h2>
+            <p class="text-muted mb-0">Blog your engineering updates, wins, or lessons learned.</p>
+          </div>
+        </div>
+
+        <!-- Error Feedback -->
+        @if (errorMsg()) {
+        <div class="alert alert-danger border border-dark border-3 rounded-3 mb-4"
+          style="font-weight: 700; box-shadow: 3px 3px 0 var(--black);">
+          ⚠️ {{ errorMsg() }}
+        </div>
+        }
+
+        <form (ngSubmit)="addPost()">
+          <!-- Title Input -->
+          <div class="mb-4">
+            <label for="blogTitle" class="form-label"
+              style="font-weight: 800; font-family: 'Outfit'; font-size: 18px; color: var(--text-primary);">
+              Blog Title
+            </label>
+            <input [ngModel]="title()" (ngModelChange)="title.set($event)" name="title" type="text" id="blogTitle" class="input-writenest py-3"
+              placeholder="e.g. Optimized database query performance by 40% with indexes" required
+              [disabled]="isSubmitting()">
+          </div>
+
+          <!-- Content Input -->
+          <div class="mb-4">
+            <label for="blogContent" class="form-label"
+              style="font-weight: 800; font-family: 'Outfit'; font-size: 18px; color: var(--text-primary);">
+              Content / Details
+            </label>
+            <textarea [ngModel]="content()" (ngModelChange)="content.set($event)" name="content" id="blogContent" class="input-writenest py-3" rows="8"
+              placeholder="Provide context, what you did, the code snippets involved, and what results you achieved..."
+              required [disabled]="isSubmitting()"></textarea>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="d-flex gap-3 mt-5">
+            <button type="submit" class="btn-writenest-green flex-grow-1 py-3"
+              style="font-family: 'Outfit'; font-size: 18px; font-weight: 800;" [disabled]="isSubmitting()">
+              {{ isSubmitting() ? 'Publishing...' : 'Publish Blog 🚀' }}
+            </button>
+            <button type="button" (click)="goBack()" class="btn-writenest-white py-3 px-4"
+              style="font-family: 'Outfit'; font-size: 18px; font-weight: 800;" [disabled]="isSubmitting()">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

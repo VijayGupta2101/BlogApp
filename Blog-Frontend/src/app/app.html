@@ -1,0 +1,98 @@
+<header class="py-3 px-4">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <!-- Brand Logo: WriteNest with green lightning icon -->
+      <a class="navbar-brand d-flex align-items-center" routerLink="/"
+        style="font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 28px; color: var(--text-primary);">
+        <div class="d-flex align-items-center justify-content-center me-2 float-anim"
+          style="width: 40px; height: 40px; background-color: var(--accent-green); border: 2.5px solid var(--black); border-radius: 50%;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="bi bi-lightning-charge-fill" viewBox="0 0 16 16" style="color: var(--black);">
+            <path
+              d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
+          </svg>
+        </div>
+        <span>WriteNest</span>
+      </a>
+
+      <!-- Burger toggle for mobile screens -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#writenestNavbar"
+        aria-controls="writenestNavbar" aria-expanded="false" aria-label="Toggle navigation"
+        style="border: 3px solid var(--black); border-radius: 8px; background-color: var(--white); box-shadow: 2px 2px 0 var(--black);">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navigation links and buttons -->
+      <div class="collapse navbar-collapse justify-content-between" id="writenestNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center" style="font-weight: 700; gap: 15px;">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/how-it-works"
+              style="color: var(--text-primary); transition: all 0.2s;">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/mission"
+              style="color: var(--text-primary); transition: all 0.2s;">Mission</a>
+          </li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" routerLink="/pricing"
+              style="color: var(--text-primary); transition: all 0.2s;">
+              Pricing
+              <span class="position-absolute translate-middle-y badge bg-success text-white border border-dark border-1"
+                style="font-size: 8px; top: 0px; right: -15px; padding: 2px 5px; border-radius: 4px; font-family: 'Outfit'; font-weight: 800; background-color: var(--accent-green) !important; color: var(--black) !important;">New</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/faq"
+              style="color: var(--text-primary); transition: all 0.2s;">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-decoration-underline" routerLink="/"
+              style="color: var(--text-primary); font-weight: 800; transition: all 0.2s;">Blogs Feed</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-writenest-white py-1 px-3" routerLink="create-blog"
+              style="font-size: 14px; box-shadow: 3px 3px 0 var(--black);">+ Write Blog</a>
+          </li>
+        </ul>
+
+        <!-- Right Side: Login and Action CTA -->
+        <div class="d-flex align-items-center gap-3 justify-content-center mt-3 mt-lg-0">
+          @if (!api.isAuthenticated()) {
+            <a routerLink="/login"
+              style="font-family: 'Outfit', sans-serif; font-weight: 800; color: var(--text-primary); text-decoration: none; transition: transform 0.2s;"
+              onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Login</a>
+            <a routerLink="/signup" class="btn-writenest-yellow py-2 px-4"
+              style="font-family: 'Outfit', sans-serif;">Sign Up</a>
+          } @else {
+            <span style="font-family: 'Outfit', sans-serif; font-weight: 800; color: var(--text-primary);">
+              Hi, {{ api.currentUser()?.username }} ⚡
+            </span>
+            <button (click)="logout()" class="btn-writenest-danger py-1 px-3" style="font-size: 14px;">
+              Logout
+            </button>
+          }
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>
+
+<main class="container-fluid px-0">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="py-5 text-center mt-5"
+  style="background-color: var(--black); color: var(--white); border-top: 5px solid var(--black);">
+  <div class="container">
+    <h3 style="color: var(--accent-green); font-family: 'Outfit'; font-weight: 800;" class="mb-3">WriteNest</h3>
+    <p class="mb-4 text-white-50">Share your thoughts, document your code. Get valued for your actual efforts.</p>
+    <div class="d-flex justify-content-center gap-4 mb-4">
+      <a href="#" style="color: var(--accent-yellow); text-decoration: none; font-weight: 600;">Twitter</a>
+      <a href="#" style="color: var(--accent-yellow); text-decoration: none; font-weight: 600;">LinkedIn</a>
+      <a href="#" style="color: var(--accent-yellow); text-decoration: none; font-weight: 600;">GitHub</a>
+    </div>
+    <p style="font-size: 14px;" class="text-white-50">© 2026 WriteNest Inc. All rights reserved.</p>
+  </div>
+</footer>

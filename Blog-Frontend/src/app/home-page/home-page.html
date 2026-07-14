@@ -1,0 +1,194 @@
+<!-- Hero landing section modeled after WriteNest design -->
+<div class="hero-container">
+  <!-- Background giant outlines -->
+  <div class="outline-text outline-wri">WRI</div>
+  <div class="outline-text outline-nes">NES</div>
+
+  <!-- Hero Content -->
+  <div class="container position-relative" style="z-index: 2;">
+    <h1 class="hero-main-title">
+      Show your proof of work <br>
+      with <span class="px-3 py-1 rounded-3"
+        style="background-color: var(--accent-green); border: 3.5px solid var(--black); display: inline-flex; align-items: center; box-shadow: 4px 4px 0 var(--black);">WriteNest
+        ⚡</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      The world is waiting to know about your journey. WriteNest presents your journey in front of the world and gives
+      the actual value of your hard work.
+    </p>
+
+    <!-- Sign up / Action CTAs -->
+    <div class="d-flex justify-content-center gap-3 mt-4 position-relative" style="z-index: 3;">
+      @if (!isAuthenticated()) {
+        <a routerLink="/signup" class="btn-writenest-green py-3 px-5" style="font-size: 18px;">Get Started - Sign Up ⚡</a>
+        <a routerLink="/login" class="btn-writenest-white py-3 px-5" style="font-size: 18px;">Log In</a>
+      } @else {
+        <a routerLink="/create-blog" class="btn-writenest-green py-3 px-5" style="font-size: 18px;">+ Write A Blog Post ⚡</a>
+      }
+    </div>
+
+    <!-- Center Avatar Circle & Floating Badges -->
+    <div class="avatar-center-wrapper">
+      <div class="avatar-circle">
+        <img src="/hero-avatar.png" alt="WriteNest User Profile Visual">
+      </div>
+
+      <!-- Floating widgets -->
+      <div class="floating-badge fb-hi float-anim">
+        <span>Hi 👋</span>
+      </div>
+
+      <div class="floating-badge fb-hearts float-anim-reverse">
+        <span>😍❤️</span>
+      </div>
+
+      <div class="floating-badge fb-rocket float-anim">
+        <span>🚀</span>
+      </div>
+
+      <div class="floating-badge fb-lightning float-anim-reverse">
+        <span>⚡</span>
+      </div>
+
+      <!-- Floating profile card overlay -->
+      <div class="floating-user-badge pulse-anim">
+        <!-- Mock profile details -->
+        <div class="d-flex align-items-center gap-2">
+          <div class="user-badge-avatar d-flex align-items-center justify-content-center"
+            style="font-weight: 800; font-size: 14px;">
+            🧑‍💻
+          </div>
+          <div class="user-badge-lines">
+            <div class="badge-line badge-line-1"></div>
+            <div class="badge-line badge-line-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Curve Shape -->
+  <div class="hero-curve-divider">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path
+        d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+        class="shape-fill"></path>
+    </svg>
+  </div>
+</div>
+
+<!-- White section wrapper containing Live Blogs -->
+<div class="bg-white py-5 border-top border-dark border-5" style="z-index: 10; position: relative;">
+  <div class="container my-5">
+
+    <!-- Blogs List Section -->
+    <section id="blogs-section" class="my-5 pt-4">
+      <div class="section-title-wrapper">
+        <span class="section-tag bg-warning text-dark border border-dark">LIVE BLOGS</span>
+        <h2 class="section-heading">Recent Proof of Work</h2>
+        <p class="text-muted">Read blogs, find insights, and learn how developers build real-world software.</p>
+      </div>
+
+      <!-- Search and Add Blog Controls -->
+      <div class="row align-items-center mb-5">
+        <div class="col-md-8">
+          <div class="search-container mb-0">
+            <div class="search-input-group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search"
+                viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+              </svg>
+              <input type="text" placeholder="Search by title or content keywords..." [ngModel]="searchText()"
+                (ngModelChange)="searchText.set($event)">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+          <a routerLink="create-blog" class="btn-writenest-green w-100 py-3 text-center"
+            style="box-shadow: 4px 4px 0 var(--black);">+ Add Your Proof</a>
+        </div>
+      </div>
+
+      <!-- Blogs Cards List -->
+      @if (filteredPosts().length > 0) {
+      <div class="row g-4">
+        @for (post of filteredPosts(); track post.id) {
+        <div class="col-lg-4 col-md-6">
+          <div class="card-writenest h-100 d-flex flex-column justify-content-between">
+            <div>
+              <!-- Tag, Date and Read Time -->
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge border border-2 px-2 py-1" [ngClass]="getCategoryTag(post.id).class"
+                  style="font-family: 'Outfit'; font-weight: 800;">
+                  {{ getCategoryTag(post.id).text }}
+                </span>
+                <span style="font-size: 12px; font-weight: 700; color: var(--text-muted)">
+                  {{ getReadingTime(post.content) }}
+                </span>
+              </div>
+
+              <!-- Title & Author -->
+              <h3 class="mb-1" style="font-size: 22px;">{{ post.title }}</h3>
+              <p class="text-muted mb-3" style="font-size: 13px; font-weight: 700; font-family: 'Outfit';">
+                ✍️ By {{ post.author || 'Anonymous' }}
+              </p>
+
+              <!-- Content snippet -->
+              <p class="text-muted" style="font-size: 15px; line-height: 1.5;">
+                {{ post.content.length > 140 ? (post.content | slice:0:140) + '...' : post.content }}
+              </p>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="border-top border-dark border-2 pt-3 mt-4">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <!-- Date -->
+                <span class="text-muted" style="font-size: 11px; font-weight: 700;">
+                  📅 {{ post.created_at ? (post.created_at | date:'mediumDate') : 'Just now' }}
+                </span>
+
+                <!-- Local Interactive Likes/Claps -->
+                <button class="likes-counter-btn" (click)="likePost(post.id, $event)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-heart-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                  </svg>
+                  <span>{{ likesMap()[post.id] || 0 }} claps</span>
+                </button>
+              </div>
+
+              <!-- Edit/Delete only for author -->
+              @if (isAuthenticated() && currentUser()?.username === post.author) {
+                <div class="d-flex gap-2">
+                  <a [routerLink]="['/update-blog', post.id]"
+                    class="btn btn-writenest-white py-1 px-3 flex-grow-1 text-center"
+                    style="font-size: 13px; box-shadow: 2px 2px 0 var(--black);">
+                    Update
+                  </a>
+                  <button (click)="deleteBlog(post.id, $event)" class="btn-writenest-danger py-1 px-3"
+                    style="font-size: 13px;">
+                    Delete
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      } @else {
+      <div class="empty-state-container">
+        <div class="display-1 mb-3">📭</div>
+        <h3>No Proof of Work Found</h3>
+        <p class="text-muted col-md-6 mx-auto mb-4">We couldn't find any blogs matching your search term. Why not
+          connect your database and create a brand new blog post right now?</p>
+        <a routerLink="create-blog" class="btn-writenest-yellow">Create the First Blog</a>
+      </div>
+      }
+    </section>
+
+  </div>
+</div>

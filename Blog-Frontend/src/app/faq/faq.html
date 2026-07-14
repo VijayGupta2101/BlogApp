@@ -1,0 +1,63 @@
+<div class="container py-5 my-4">
+  <div class="text-center mb-5">
+    <span class="badge bg-info text-dark border border-dark px-3 py-2 mb-3" style="font-family: 'Outfit'; font-weight: 800;">QUESTIONS</span>
+    <h1 class="display-4 font-weight-bold" style="font-family: 'Outfit'; font-weight: 900;">Frequently Asked Questions ⚡</h1>
+    <p class="lead text-muted col-md-8 mx-auto mt-3">
+      Everything you need to know about logging proof of work and sharing developer blogs on WriteNest.
+    </p>
+  </div>
+
+  <div class="faq-accordion mx-auto" style="max-width: 800px;">
+    <!-- FAQ 1 -->
+    <div class="faq-card">
+      <div class="faq-header" (click)="toggleFaq(1)">
+        <span>What exactly is "Proof of Work" (PoW)?</span>
+        <span class="faq-icon" [class.open]="activeFaqIndex() === 1">+</span>
+      </div>
+      <div class="faq-body" [class.open]="activeFaqIndex() === 1">
+        <p class="text-muted mb-0">
+          Unlike traditional resumes that just summarize lists of technologies you claim to know, Proof of Work documents *what you have actually built*, complete with code snippets, deployment links, architectural summaries, and explanation of challenges you solved along the way.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-card">
+      <div class="faq-header" (click)="toggleFaq(2)">
+        <span>Is this app connected to a real database?</span>
+        <span class="faq-icon" [class.open]="activeFaqIndex() === 2">+</span>
+      </div>
+      <div class="faq-body" [class.open]="activeFaqIndex() === 2">
+        <p class="text-muted mb-0">
+          Yes! The application connects directly to a Node/Express backend that saves, retrieves, updates, and deletes records in a local SQLite file (`blog.db`). All CRUD actions are fully operational and sync instantly in real-time.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-card">
+      <div class="faq-header" (click)="toggleFaq(3)">
+        <span>How do claps work?</span>
+        <span class="faq-icon" [class.open]="activeFaqIndex() === 3">+</span>
+      </div>
+      <div class="faq-body" [class.open]="activeFaqIndex() === 3">
+        <p class="text-muted mb-0">
+          Claps are an interactive engagement feature. They are stored locally in the browser's `localStorage` for quick response and persistence, allowing you to vote and applaud your favorite posts without page refreshes.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-card">
+      <div class="faq-header" (click)="toggleFaq(4)">
+        <span>Can I customize my dashboard tag categories?</span>
+        <span class="faq-icon" [class.open]="activeFaqIndex() === 4">+</span>
+      </div>
+      <div class="faq-body" [class.open]="activeFaqIndex() === 4">
+        <p class="text-muted mb-0">
+          Absolutely. While creating or editing blogs, you can input content detailing engineering, design, blockchain, backend, or careers, and the application dynamically assigns visual tags to match the content category.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

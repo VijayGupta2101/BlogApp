@@ -1,0 +1,57 @@
+/* Custom Accordion FAQ */
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background-color: var(--white);
+  border: 3px solid var(--black);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 4px 4px 0px var(--black);
+  transition: all 0.2s ease;
+}
+
+.faq-header {
+  padding: 20px 24px;
+  font-weight: 800;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.faq-header:hover {
+  background-color: #fafbfb;
+}
+
+.faq-icon {
+  font-size: 24px;
+  font-weight: 800;
+  transition: transform 0.2s ease;
+}
+
+.faq-icon.open {
+  transform: rotate(45deg);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+  padding: 0 24px;
+  border-top: 0px solid var(--black);
+  background-color: var(--white);
+}
+
+.faq-body.open {
+  max-height: 200px;
+  padding: 20px 24px;
+  border-top: 3px solid var(--black);
+}
