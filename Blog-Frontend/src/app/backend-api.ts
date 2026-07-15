@@ -47,11 +47,11 @@ export class BackendApi {
     }
 
     signup(payload: any) {
-        return this.http.post<UserType>("http://localhost:3000/signup", payload);
+        return this.http.post<UserType>("https://blogserver-gm6s.onrender.com/signup", payload);
     }
 
     login(payload: any) {
-        return this.http.post<UserType>("http://localhost:3000/login", payload);
+        return this.http.post<UserType>("https://blogserver-gm6s.onrender.com/login", payload);
     }
 
     setSession(user: UserType | null) {
@@ -64,23 +64,23 @@ export class BackendApi {
     }
 
     getBlogs() {
-        return this.http.get<BlogType[]>("http://localhost:3000/posts");
+        return this.http.get<BlogType[]>("https://blogserver-gm6s.onrender.com/posts");
     }
 
     getBlogById(id: any) {
-        return this.http.get<BlogType>(`http://localhost:3000/posts/${id}`);
+        return this.http.get<BlogType>(`https://blogserver-gm6s.onrender.com/posts/${id}`);
     }
 
     addBlog(payload: any) {
-        return this.http.post("http://localhost:3000/posts", payload, this.getHeaders());
+        return this.http.post("https://blogserver-gm6s.onrender.com/posts", payload, this.getHeaders());
     }
 
     delete(payload: any) {
-        return this.http.delete(`http://localhost:3000/posts/${payload}`, this.getHeaders());
+        return this.http.delete(`https://blogserver-gm6s.onrender.com/posts/${payload}`, this.getHeaders());
     }
 
     update(id: any, payload: any) {
-        return this.http.put(`http://localhost:3000/posts/${id}`, payload, this.getHeaders());
+        return this.http.put(`https://blogserver-gm6s.onrender.com/posts/${id}`, payload, this.getHeaders());
     }
 }
 
