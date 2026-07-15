@@ -10,9 +10,9 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const allowedOrigins = [
   "http://localhost:4200",
+  "https://blog-app-15gz.vercel.app",
   "https://blogging-iota-five.vercel.app"
 ];
-
 app.use(express.json());
 
 app.use(cors({
